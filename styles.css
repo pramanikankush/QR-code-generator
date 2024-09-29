@@ -1,0 +1,162 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #6a85b6, #bac8e0); /* Softer gradient */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrollbar */
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  position: relative; /* To position moving elements */
+}
+
+.card {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #6a85b6; /* Matching the gradient */
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #5a67d8; /* Softer button color */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #6a85b6; /* Slight color change on hover */
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+#qrCode {
+  margin-top: 20px;
+}
+
+#qrImage {
+  margin: 0 auto;
+  display: none;
+  transition: opacity 0.3s ease; /* Smooth fade-in for the QR code */
+}
+
+#qrImage.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Moving elements styling */
+.moving-element {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent */
+  pointer-events: auto; /* Allow mouse events */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth movement and fade */
+}
+
+/* Keyframes for click animation */
+@keyframes moveAway {
+  to {
+    transform: translate(calc(100vw), calc(100vh)); /* Move away */
+    opacity: 0; /* Fade out */
+  }
+}
+
+.circle-1 { width: 50px; height: 50px; left: 10%; top: 20%; }
+.circle-2 { width: 30px; height: 30px; left: 30%; top: 50%; }
+.circle-3 { width: 70px; height: 70px; left: 60%; top: 10%; }
+.circle-4 { width: 60px; height: 60px; left: 20%; top: 60%; }
+.circle-5 { width: 40px; height: 40px; left: 80%; top: 40%; }
+.circle-6 { width: 50px; height: 50px; left: 50%; top: 30%; }
+.circle-7 { width: 30px; height: 30px; left: 40%; top: 70%; }
+.circle-8 { width: 80px; height: 80px; left: 70%; top: 20%; }
+.circle-1 { width: 50px; height: 50px; left: 10%; top: 20%; }
+.circle-3 { width: 70px; height: 70px; left: 60%; top: 10%; }
+.circle-4 { width: 60px; height: 60px; left: 20%; top: 60%; }
+.circle-5 { width: 40px; height: 40px; left: 80%; top: 40%; }
+.circle-6 { width: 50px; height: 50px; left: 50%; top: 30%; }
+
+/* Add random floating animation */
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(20px, -15px); }  /* Move up-right */
+  50% { transform: translate(-20px, 10px); }  /* Move down-left */
+  75% { transform: translate(15px, 20px); }   /* Move down-right */
+  100% { transform: translate(0, 0); }         /* Return to original */
+}
+  
+.moving-element {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent */
+  pointer-events: auto; /* Allow mouse events */
+  transition: transform 0.9s ease, opacity 0.3s ease; /* Smooth movement and fade */
+}
+
+/* Adjust float duration for a more dynamic effect */
+.circle {
+  animation: float 12s infinite ease-in-out; /* Longer duration for slower movement */
+}
+.social-icons {
+  display: flex; /* Aligns the icons in a row */
+  justify-content: center; /* Centers the icons */
+  margin-top: 20px; /* Space between the card and icons */
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeIn 1s forwards; /* Animation for fading in */
+}
+
+.social-icon {
+  font-size: 30px; /* Size of the icons */
+  color: #5a67d8; /* Color of the icons */
+  margin: 0 10px; /* Space between icons */
+  transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+}
+
+.social-icon:hover {
+  transform: scale(1.2); /* Scale up effect on hover */
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fully visible */
+  }
+}
